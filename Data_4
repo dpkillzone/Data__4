@@ -1,0 +1,15 @@
+import csv
+
+# Hente en bestemt information fra CSV filen
+with open('adresse.csv', mode='r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for row in csv_reader:
+        # Hent informationen fra den anden kolonne
+        information = row[1]
+        print(information)
+
+# Skrive en bestemt information til CSV filen
+with open('adresse.csv', mode='a', newline='') as csv_file:
+    csv_writer = csv.writer(csv_file)
+    # Skriv en ny række med den ønskede information
+    csv_writer.writerow(['Jane', 'Doe', '123 Main St.', 'Anytown', 'CA', '90210'])
